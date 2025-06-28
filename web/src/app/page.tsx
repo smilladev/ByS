@@ -1,9 +1,64 @@
 "use client";
+import React from "react";
 import Image from "next/image";
-import { Box, Button, Container, Typography, Paper } from "@mui/material";
+import { Box, Button, Container, Typography, Paper, AppBar, Toolbar, Link as MuiLink, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
+import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 export default function Home() {
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const navLinks = [
+    { label: 'Inicio', href: '#hero' },
+    { label: 'Sobre nosotros', href: '#sobre-nosotros' },
+    { label: 'Servicios', href: '#servicios' },
+    { label: 'Proceso', href: '#proceso' },
+    { label: 'Testimonios', href: '#testimonios' },
+    { label: 'Casos de éxito', href: '#carrusel' },
+    { label: 'Contacto', href: '#contacto' },
+  ];
   return (
     <Box>
+      {/* Navbar */}
+      <AppBar position="sticky" color="default" elevation={0} sx={{ bgcolor: '#fff', borderBottom: '1px solid #e0e0e0' }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: { xs: 1, sm: 2 } }}>
+          <Link href="#hero" passHref legacyBehavior>
+            <MuiLink sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+              <Box sx={{ width: 48, height: 48, borderRadius: '50%', overflow: 'hidden', mr: 2, bgcolor: '#fff', boxShadow: '0 2px 8px #0001', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Image src="/images/Logo.png" alt="ByS Growth Marketing Logo" width={48} height={48} style={{ width: '100%', height: '100%', objectFit: 'cover' }} priority />
+              </Box>
+              <Typography variant="h6" color="primary" fontWeight={700} sx={{ display: { xs: 'none', sm: 'block' } }}>
+                ByS Growth
+              </Typography>
+            </MuiLink>
+          </Link>
+          {/* Desktop links */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
+            {navLinks.map(link => (
+              <MuiLink key={link.href} href={link.href} color="inherit" underline="none" sx={{ fontWeight: 500, px: 1, py: 0.5, borderRadius: 1, '&:hover': { bgcolor: 'primary.light', color: '#fff' } }}>{link.label}</MuiLink>
+            ))}
+          </Box>
+          {/* Mobile menu button */}
+          <IconButton edge="end" color="inherit" aria-label="menu" sx={{ display: { xs: 'flex', md: 'none' } }} onClick={() => setDrawerOpen(true)}>
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+        {/* Drawer for mobile */}
+        <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+          <Box sx={{ width: 220 }} role="presentation" onClick={() => setDrawerOpen(false)}>
+            <List>
+              {navLinks.map(link => (
+                <ListItem key={link.href} disablePadding>
+                  <ListItemButton component="a" href={link.href}>
+                    <ListItemText primary={link.label} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Drawer>
+      </AppBar>
       {/* Hero Section */}
       <Box
         id="hero"
@@ -15,14 +70,6 @@ export default function Home() {
         }}
       >
         <Container maxWidth="md">
-          <Image
-            src="/images/Logo.png"
-            alt="ByS Growth Marketing Logo"
-            width={220}
-            height={120}
-            style={{ marginBottom: 24 }}
-            priority
-          />
           <Typography
             variant="h3"
             component="h1"
@@ -235,37 +282,31 @@ export default function Home() {
           >
             Casos de éxito
           </Typography>
-          {/* Aquí se puede integrar un carrusel de imágenes con MUI o Swiper.js */}
-          <Box
-            sx={{
-              display: "flex",
-              gap: 2,
-              overflowX: "auto",
-              py: 2,
+          <Swiper
+            spaceBetween={24}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            speed={1200}
+            breakpoints={{
+              600: { slidesPerView: 2 },
+              900: { slidesPerView: 3 },
+              1200: { slidesPerView: 4 },
             }}
+            style={{ padding: "24px 0" }}
           >
-            <Image
-              src="/images/caso1.jpg"
-              alt="Caso 1"
-              width={320}
-              height={200}
-              style={{ borderRadius: 8 }}
-            />
-            <Image
-              src="/images/caso2.jpg"
-              alt="Caso 2"
-              width={320}
-              height={200}
-              style={{ borderRadius: 8 }}
-            />
-            <Image
-              src="/images/caso3.jpg"
-              alt="Caso 3"
-              width={320}
-              height={200}
-              style={{ borderRadius: 8 }}
-            />
-          </Box>
+            {[1, 2, 3, 4, 5].map((num) => (
+              <SwiperSlide key={num}>
+                <Image
+                  src={`/images/caso${num}.jpg`}
+                  alt={`Caso ${num}`}
+                  width={320}
+                  height={200}
+                  style={{ borderRadius: 8, width: "100%", height: "auto" }}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </Container>
       </Box>
 
