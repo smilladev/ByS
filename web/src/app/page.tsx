@@ -23,15 +23,15 @@ export default function Home() {
       {/* Navbar */}
       <AppBar position="sticky" color="default" elevation={0} sx={{ bgcolor: '#fff', borderBottom: '1px solid #e0e0e0' }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: { xs: 1, sm: 2 } }}>
-          <Link href="#hero" passHref legacyBehavior>
-            <MuiLink sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <Link href="#hero" style={{ textDecoration: 'none' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <Box sx={{ width: 48, height: 48, borderRadius: '50%', overflow: 'hidden', mr: 2, bgcolor: '#fff', boxShadow: '0 2px 8px #0001', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Image src="/images/Logo.png" alt="ByS Growth Marketing Logo" width={48} height={48} style={{ width: '100%', height: '100%', objectFit: 'cover' }} priority />
               </Box>
               <Typography variant="h6" color="primary" fontWeight={700} sx={{ display: { xs: 'none', sm: 'block' } }}>
                 ByS Growth
               </Typography>
-            </MuiLink>
+            </Box>
           </Link>
           {/* Desktop links */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
