@@ -5,7 +5,7 @@ import { Box, Button, Container, Typography, Paper, AppBar, Toolbar, Link as Mui
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+//import { Autoplay } from "swiper/modules";
 import "swiper/css";
 export default function Home() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
