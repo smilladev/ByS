@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { Box, Button, Container, Typography, Paper, AppBar, Toolbar, Link as MuiLink, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import { Box, Button, Container, Typography, Paper, AppBar, Toolbar, Link as MuiLink, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-//import { Autoplay } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
 export default function Home() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const navLinks = [
@@ -270,6 +271,73 @@ export default function Home() {
         </Container>
       </Box>
 
+      {/* FAQ - Preguntas Frecuentes */}
+      <Box id="faq" sx={{ bgcolor: "#fff", py: 8 }}>
+        <Container maxWidth="md">
+          <Typography
+            variant="h4"
+            component="h2"
+            color="primary"
+            fontWeight={700}
+            gutterBottom
+          >
+            Preguntas Frecuentes
+          </Typography>
+          <Box sx={{ mt: 4 }}>
+            <Accordion disableGutters elevation={0} square sx={{ mb: 2, border: 'none', boxShadow: 'none' }}>
+              <AccordionSummary expandIcon={<span style={{fontWeight:700}}>&#x25BC;</span>}>
+                <Typography fontWeight={600}>¿Qué es el Growth Marketing?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography variant="body2">
+                  Es una metodología que combina creatividad, análisis de datos y experimentación para lograr un crecimiento acelerado y sostenible en tu negocio digital. Se basa en pruebas constantes y optimización de cada etapa del embudo de ventas.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion disableGutters elevation={0} square sx={{ mb: 2, border: 'none', boxShadow: 'none' }}>
+              <AccordionSummary expandIcon={<span style={{fontWeight:700}}>&#x25BC;</span>}>
+                <Typography fontWeight={600}>¿Qué servicios ofrecen?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography variant="body2">
+                  Ofrecemos diagnóstico y estrategia de crecimiento, automatización de marketing y embudos, analítica avanzada, experimentos A/B, optimización de conversiones y campañas digitales personalizadas.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion disableGutters elevation={0} square sx={{ mb: 2, border: 'none', boxShadow: 'none' }}>
+              <AccordionSummary expandIcon={<span style={{fontWeight:700}}>&#x25BC;</span>}>
+                <Typography fontWeight={600}>¿Para qué tipo de empresas es el Growth Marketing?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography variant="body2">
+                  Trabajamos con empresas de todos los tamaños que buscan escalar sus resultados digitales, desde startups hasta pymes y grandes compañías. Adaptamos la estrategia a cada necesidad.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion disableGutters elevation={0} square sx={{ mb: 2, border: 'none', boxShadow: 'none' }}>
+              <AccordionSummary expandIcon={<span style={{fontWeight:700}}>&#x25BC;</span>}>
+                <Typography fontWeight={600}>¿Cómo miden los resultados?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography variant="body2">
+                  Utilizamos herramientas de analítica y dashboards personalizados para medir el impacto de cada acción, reportando métricas clave como leads, conversiones, ROI y crecimiento mes a mes.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion disableGutters elevation={0} square sx={{ mb: 2, border: 'none', boxShadow: 'none' }}>
+              <AccordionSummary expandIcon={<span style={{fontWeight:700}}>&#x25BC;</span>}>
+                <Typography fontWeight={600}>¿Qué diferencia a ByS Growth Marketing de una agencia tradicional?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography variant="body2">
+                  Nos enfocamos en el crecimiento real y medible, priorizando la experimentación, la automatización y la toma de decisiones basada en datos. Nuestro equipo es ágil y está siempre actualizado en las últimas tendencias digitales.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Box>
+        </Container>
+      </Box>
+
       {/* Carrusel de imágenes */}
       <Box id="carrusel" sx={{ bgcolor: "#fff", py: 8 }}>
         <Container maxWidth="lg">
@@ -283,6 +351,8 @@ export default function Home() {
             Casos de éxito
           </Typography>
           <Swiper
+            modules={[Navigation]}
+            navigation
             spaceBetween={24}
             slidesPerView={1}
             loop={true}
@@ -330,20 +400,29 @@ export default function Home() {
             ¿Listo para crecer?
           </Typography>
           <Typography variant="body1" gutterBottom>
-            Agenda una llamada o contáctanos para recibir una propuesta
-            personalizada.
+            Agenda una llamada o contáctanos para recibir una propuesta personalizada.
           </Typography>
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            href="https://forms.gle/xxxxxxxxxxxxxxx"
+          <Box
+            component="form"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScGQ0faf3KB94SFBG2U3mC4MJNlKCFapJv5Bpj5bFlN6R_37A/formResponse"
+            method="POST"
             target="_blank"
-            rel="noopener noreferrer"
-            sx={{ mt: 3 }}
+            sx={{ mt: 3, display: "flex", flexDirection: "column", gap: 2, bgcolor: "#fff", color: "#222", borderRadius: 2, p: 3 }}
           >
-            Contactar por Google Forms
-          </Button>
+            {/* Reemplaza los entry.XXXXXXXX por los IDs reales de tu Google Form */}
+            <input type="hidden" name="fvv" value="1" />
+            <input type="hidden" name="fbzx" value="" />
+            <input type="hidden" name="pageHistory" value="0" />
+            <input type="hidden" name="draftResponse" value="[]" />
+            <input type="hidden" name="usp" value="pp_url" />
+            <input type="text" name="entry.384707505" placeholder="Nombre" required style={{ marginBottom: 16, padding: 8, borderRadius: 4, border: '1px solid #ccc' }} />
+            <input type="text" name="entry.218239955" placeholder="Apellido" required style={{ marginBottom: 16, padding: 8, borderRadius: 4, border: '1px solid #ccc' }} />
+            <input type="email" name="entry.1511599766" placeholder="Email" required style={{ marginBottom: 16, padding: 8, borderRadius: 4, border: '1px solid #ccc' }} />
+            <textarea name="entry.1293024095" placeholder="Comentario" required rows={3} style={{ marginBottom: 16, padding: 8, borderRadius: 4, border: '1px solid #ccc', resize: 'vertical' }} />
+            <Button type="submit" variant="contained" color="primary">
+              Enviar
+            </Button>
+          </Box>
         </Container>
       </Box>
     </Box>
