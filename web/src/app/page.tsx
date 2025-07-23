@@ -20,15 +20,15 @@ export default function Home() {
     { label: 'Contacto', href: '#contacto' },
   ];
 
-  // Updated styles for a modern, dynamic, and sober design
+  // Updated styles for modules with reduced border radius
   const moduleStyles = {
-    borderRadius: 6, // Subtle rounded corners
-    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', // Soft shadow for depth
-    background: 'linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%)', // Subtle gradient for texture
+    borderRadius: 4, // Reduced border radius for a sharper look
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)', // Soft shadow for depth
+    background: 'linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%)', // Light gradient for a clean look
     transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Smooth hover animation
     '&:hover': {
-      transform: 'scale(1.02)', // Slight zoom on hover
-      boxShadow: '0 6px 15px rgba(0, 0, 0, 0.15)', // Enhanced shadow on hover
+      transform: 'translateY(-4px)', // Subtle lift on hover
+      boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)', // Enhanced shadow on hover
     },
   };
 
@@ -37,16 +37,9 @@ export default function Home() {
       {/* Navbar */}
       <AppBar position="sticky" color="default" elevation={0} sx={{ bgcolor: '#fff', borderBottom: '1px solid #e0e0e0' }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: { xs: 1, sm: 2 } }}>
-          <Link href="#hero" style={{ textDecoration: 'none' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Box sx={{ width: 48, height: 48, borderRadius: '50%', overflow: 'hidden', mr: 2, bgcolor: '#fff', boxShadow: '0 2px 8px #0001', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Image src="/images/Logo.png" alt="ByS Growth Marketing Logo" width={48} height={48} style={{ width: '100%', height: '100%', objectFit: 'cover' }} priority />
-              </Box>
-              <Typography variant="h6" color="primary" fontWeight={700} sx={{ display: { xs: 'none', sm: 'block' } }}>
-                ByS Growth
-              </Typography>
-            </Box>
-          </Link>
+          <Typography variant="h6" color="primary" fontWeight={700}>
+            ByS Growth Marketing
+          </Typography>
           {/* Desktop links */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
             {navLinks.map(link => (
@@ -138,46 +131,57 @@ export default function Home() {
             color="primary"
             fontWeight={700}
             gutterBottom
+            textAlign="left"
+            sx={{ mb: 4 }}
           >
             Servicios
           </Typography>
           <Box
             display="grid"
-            gap={4}
+            gap={2}
             sx={{
               gridTemplateColumns: {
                 xs: '1fr',
-                md: 'repeat(3, 1fr)'
-              }
+                md: 'repeat(2, 1fr)',
+                lg: 'repeat(4, 1fr)'
+              },
+              justifyContent: 'center',
+              px: { xs: 2, md: 4, lg: 6 },
+              textAlign: 'center'
             }}
           >
-            <Paper elevation={3} sx={{ ...moduleStyles, p: 3, minHeight: 180 }}>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
-                Estrategia de Growth
-              </Typography>
-              <Typography variant="body2">
-                Diagnóstico, planificación y ejecución de estrategias de
-                crecimiento digital personalizadas.
-              </Typography>
-            </Paper>
-            <Paper elevation={3} sx={{ ...moduleStyles, p: 3, minHeight: 180 }}>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
-                Automatización & Funnels
-              </Typography>
-              <Typography variant="body2">
-                Implementación de embudos de conversión y automatización de
-                marketing para escalar resultados.
-              </Typography>
-            </Paper>
-            <Paper elevation={3} sx={{ ...moduleStyles, p: 3, minHeight: 180 }}>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
-                Analítica & Experimentación
-              </Typography>
-              <Typography variant="body2">
-                Medición, análisis y experimentos A/B para optimizar cada etapa
-                del proceso de ventas.
-              </Typography>
-            </Paper>
+            {[{
+              title: "Programación",
+              description: "Integración de herramientas necesarias para el éxito de tu estrategia digital.",
+            }, {
+              title: "Marketing de contenidos",
+              description: "Creamos contenido de valor que educa, entretiene y posiciona tu marca.",
+            }, {
+              title: "SEO (Optimización para Motores de Búsqueda)",
+              description: "Tu negocio es encontrado por clientes potenciales en Google. Más visibilidad, más tráfico.",
+            }, {
+              title: "SEM y Google ADS",
+              description: "Creamos anuncios en Google para que estés visible justo cuando la gente busca lo que ofreces.",
+            }, {
+              title: "Meta ADS",
+              description: "Diseñamos campañas de anuncios para llegar a tu cliente ideal en las plataformas donde pasa más tiempo.",
+            }, {
+              title: "Email marketing",
+              description: "Diseñamos estrategias de correo electrónico para comunicarte directamente con tus clientes, construir lealtad y animarlos a comprar de nuevo.",
+            }, {
+              title: "Armado de páginas web",
+              description: "Creamos tu tienda online o tu página de presentación profesional, pensada para que tus visitantes se conviertan en clientes.",
+            }].map((service, index) => (
+              <Box key={index} sx={{ border: '1px solid #e0e0e0', borderRadius: 4, p: 2, width: '75%', mb: 2 }}>
+                <Box sx={{ height: 112.5, bgcolor: '#f7f7f7', borderRadius: 4, mb: 2 }} />
+                <Typography variant="h6" fontWeight={600} gutterBottom>
+                  {service.title}
+                </Typography>
+                <Typography variant="body2">
+                  {service.description}
+                </Typography>
+              </Box>
+            ))}
           </Box>
         </Container>
       </Box>
@@ -204,7 +208,7 @@ export default function Home() {
               }
             }}
           >
-            <Paper elevation={2} sx={{ ...moduleStyles, p: 2, textAlign: "center" }}>
+            <Paper elevation={2} sx={{ ...moduleStyles, p: 3, textAlign: "center" }}>
               <Typography variant="h6" fontWeight={600}>
                 1. Diagnóstico
               </Typography>
@@ -212,7 +216,7 @@ export default function Home() {
                 Analizamos tu negocio y detectamos oportunidades.
               </Typography>
             </Paper>
-            <Paper elevation={2} sx={{ ...moduleStyles, p: 2, textAlign: "center" }}>
+            <Paper elevation={2} sx={{ ...moduleStyles, p: 3, textAlign: "center" }}>
               <Typography variant="h6" fontWeight={600}>
                 2. Estrategia
               </Typography>
@@ -220,7 +224,7 @@ export default function Home() {
                 Diseñamos un plan de acción a medida.
               </Typography>
             </Paper>
-            <Paper elevation={2} sx={{ ...moduleStyles, p: 2, textAlign: "center" }}>
+            <Paper elevation={2} sx={{ ...moduleStyles, p: 3, textAlign: "center" }}>
               <Typography variant="h6" fontWeight={600}>
                 3. Ejecución
               </Typography>
@@ -228,7 +232,7 @@ export default function Home() {
                 Implementamos y optimizamos campañas.
               </Typography>
             </Paper>
-            <Paper elevation={2} sx={{ ...moduleStyles, p: 2, textAlign: "center" }}>
+            <Paper elevation={2} sx={{ ...moduleStyles, p: 3, textAlign: "center" }}>
               <Typography variant="h6" fontWeight={600}>
                 4. Escalado
               </Typography>
@@ -240,52 +244,8 @@ export default function Home() {
         </Container>
       </Box>
 
-      {/* Testimonios */}
-      <Box id="testimonios" sx={{ bgcolor: "secondary.main", py: 8 }}>
-        <Container maxWidth="md">
-          <Typography
-            variant="h4"
-            component="h2"
-            color="primary"
-            fontWeight={700}
-            gutterBottom
-          >
-            Testimonios
-          </Typography>
-          <Box
-            display="grid"
-            gap={4}
-            sx={{
-              gridTemplateColumns: {
-                xs: '1fr',
-                md: '1fr 1fr'
-              }
-            }}
-          >
-            <Paper elevation={1} sx={{ ...moduleStyles, p: 3 }}>
-              <Typography variant="body1" gutterBottom>
-                “Gracias a ByS logramos triplicar nuestros leads en solo 3
-                meses. El equipo es súper profesional y proactivo.”
-              </Typography>
-              <Typography variant="subtitle2" color="primary">
-                — Cliente de SaaS
-              </Typography>
-            </Paper>
-            <Paper elevation={1} sx={{ ...moduleStyles, p: 3 }}>
-              <Typography variant="body1" gutterBottom>
-                “La automatización y los experimentos A/B nos permitieron escalar
-                ventas sin aumentar el presupuesto.”
-              </Typography>
-              <Typography variant="subtitle2" color="primary">
-                — Ecommerce
-              </Typography>
-            </Paper>
-          </Box>
-        </Container>
-      </Box>
-
       {/* FAQ - Preguntas Frecuentes */}
-      <Box id="faq" sx={{ bgcolor: "#fff", py: 8 }}>
+      <Box id="faq" sx={{ bgcolor: "#f7f7f7", py: 8 }}>
         <Container maxWidth="md">
           <Typography
             variant="h4"
@@ -352,12 +312,12 @@ export default function Home() {
       </Box>
 
       {/* Carrusel de imágenes */}
-      <Box id="carrusel" sx={{ bgcolor: "#fff", py: 8 }}>
+      <Box id="carrusel" sx={{ bgcolor: "primary.main", color: "#fff", py: 8 }}>
         <Container maxWidth="lg">
           <Typography
             variant="h4"
             component="h2"
-            color="primary"
+            color="inherit" // Ensures text color adapts to the section's color
             fontWeight={700}
             gutterBottom
           >
