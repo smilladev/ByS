@@ -19,6 +19,19 @@ export default function Home() {
     { label: 'Casos de éxito', href: '#carrusel' },
     { label: 'Contacto', href: '#contacto' },
   ];
+
+  // Updated styles for a modern, dynamic, and sober design
+  const moduleStyles = {
+    borderRadius: 6, // Subtle rounded corners
+    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', // Soft shadow for depth
+    background: 'linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%)', // Subtle gradient for texture
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Smooth hover animation
+    '&:hover': {
+      transform: 'scale(1.02)', // Slight zoom on hover
+      boxShadow: '0 6px 15px rgba(0, 0, 0, 0.15)', // Enhanced shadow on hover
+    },
+  };
+
   return (
     <Box>
       {/* Navbar */}
@@ -138,7 +151,7 @@ export default function Home() {
               }
             }}
           >
-            <Paper elevation={3} sx={{ p: 3, minHeight: 180 }}>
+            <Paper elevation={3} sx={{ ...moduleStyles, p: 3, minHeight: 180 }}>
               <Typography variant="h6" fontWeight={600} gutterBottom>
                 Estrategia de Growth
               </Typography>
@@ -147,7 +160,7 @@ export default function Home() {
                 crecimiento digital personalizadas.
               </Typography>
             </Paper>
-            <Paper elevation={3} sx={{ p: 3, minHeight: 180 }}>
+            <Paper elevation={3} sx={{ ...moduleStyles, p: 3, minHeight: 180 }}>
               <Typography variant="h6" fontWeight={600} gutterBottom>
                 Automatización & Funnels
               </Typography>
@@ -156,7 +169,7 @@ export default function Home() {
                 marketing para escalar resultados.
               </Typography>
             </Paper>
-            <Paper elevation={3} sx={{ p: 3, minHeight: 180 }}>
+            <Paper elevation={3} sx={{ ...moduleStyles, p: 3, minHeight: 180 }}>
               <Typography variant="h6" fontWeight={600} gutterBottom>
                 Analítica & Experimentación
               </Typography>
@@ -191,7 +204,7 @@ export default function Home() {
               }
             }}
           >
-            <Paper elevation={2} sx={{ p: 2, textAlign: "center" }}>
+            <Paper elevation={2} sx={{ ...moduleStyles, p: 2, textAlign: "center" }}>
               <Typography variant="h6" fontWeight={600}>
                 1. Diagnóstico
               </Typography>
@@ -199,7 +212,7 @@ export default function Home() {
                 Analizamos tu negocio y detectamos oportunidades.
               </Typography>
             </Paper>
-            <Paper elevation={2} sx={{ p: 2, textAlign: "center" }}>
+            <Paper elevation={2} sx={{ ...moduleStyles, p: 2, textAlign: "center" }}>
               <Typography variant="h6" fontWeight={600}>
                 2. Estrategia
               </Typography>
@@ -207,7 +220,7 @@ export default function Home() {
                 Diseñamos un plan de acción a medida.
               </Typography>
             </Paper>
-            <Paper elevation={2} sx={{ p: 2, textAlign: "center" }}>
+            <Paper elevation={2} sx={{ ...moduleStyles, p: 2, textAlign: "center" }}>
               <Typography variant="h6" fontWeight={600}>
                 3. Ejecución
               </Typography>
@@ -215,7 +228,7 @@ export default function Home() {
                 Implementamos y optimizamos campañas.
               </Typography>
             </Paper>
-            <Paper elevation={2} sx={{ p: 2, textAlign: "center" }}>
+            <Paper elevation={2} sx={{ ...moduleStyles, p: 2, textAlign: "center" }}>
               <Typography variant="h6" fontWeight={600}>
                 4. Escalado
               </Typography>
@@ -249,7 +262,7 @@ export default function Home() {
               }
             }}
           >
-            <Paper elevation={1} sx={{ p: 3 }}>
+            <Paper elevation={1} sx={{ ...moduleStyles, p: 3 }}>
               <Typography variant="body1" gutterBottom>
                 “Gracias a ByS logramos triplicar nuestros leads en solo 3
                 meses. El equipo es súper profesional y proactivo.”
@@ -258,7 +271,7 @@ export default function Home() {
                 — Cliente de SaaS
               </Typography>
             </Paper>
-            <Paper elevation={1} sx={{ p: 3 }}>
+            <Paper elevation={1} sx={{ ...moduleStyles, p: 3 }}>
               <Typography variant="body1" gutterBottom>
                 “La automatización y los experimentos A/B nos permitieron escalar
                 ventas sin aumentar el presupuesto.”
