@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import { Box, Button, Container, Typography, Paper, AppBar, Toolbar, Link as MuiLink, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
-import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
