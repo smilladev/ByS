@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ByS Growth Marketing",
+  title: "ByS Growth Marketing!",
   description:
     "Agencia de Growth Marketing. Estrategias digitales para potenciar tu negocio.",
 };
