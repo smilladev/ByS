@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ByS Growth Marketing!",
+  title: "SyB Growth Marketing - Estrategias Digitales para Crecer",
   description:
-    "Agencia de Growth Marketing. Estrategias digitales para potenciar tu negocio.",
+    "SyB Growth Marketing combina creatividad, datos y tecnología para ofrecer soluciones de marketing digital que impulsan el crecimiento de tu negocio.",
 };
-
+  
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,6 +37,7 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-W53HPZ7P');
           `}
         </Script>
+        <link rel="icon" href="/images/Logo.jpeg" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

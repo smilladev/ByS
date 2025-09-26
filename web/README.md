@@ -1,6 +1,6 @@
-# ByS Growth Marketing - One Page
+# SyB Growth Marketing - One Page
 
-Este proyecto es un sitio web one-page para ByS Growth Marketing, desarrollado con Next.js, TypeScript y Material UI.
+Este proyecto es un sitio web one-page para SyB Growth Marketing, desarrollado con Next.js, TypeScript y Material UI.
 
 ## Estructura principal
 - Hero (con logo y mensaje principal)

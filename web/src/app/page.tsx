@@ -36,9 +36,18 @@ export default function Home() {
       {/* Navbar */}
       <AppBar position="sticky" color="default" elevation={0} sx={{ bgcolor: '#fff', borderBottom: '1px solid #e0e0e0' }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: { xs: 1, sm: 2 } }}>
-          <Typography variant="h6" color="primary" fontWeight={700}>
-            ByS Growth Marketing
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Image 
+              src="/images/Logo.jpeg" 
+              alt="Logo" 
+              width={50} 
+              height={50} 
+              style={{ borderRadius: '50%' }} 
+            />
+            <Typography variant="h6" color="primary" fontWeight={700}>
+              SyB Growth Marketing
+            </Typography>
+          </Box>
           {/* Desktop links */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
             {navLinks.map(link => (
@@ -82,7 +91,7 @@ export default function Home() {
             gutterBottom
             fontWeight={700}
           >
-            Impulsa tu crecimiento digital
+            Impulsa tu crecimiento digital con SyB Growth Marketing
           </Typography>
           <Typography variant="h6" component="p" gutterBottom>
             Estrategias de Growth Marketing para empresas que quieren crecer en
@@ -144,7 +153,10 @@ export default function Home() {
                 md: 'repeat(2, 1fr)',
                 lg: 'repeat(4, 1fr)'
               },
-              justifyContent: 'center',
+              justifyItems: {
+                xs: 'center', // Center items for single-column layout
+                md: 'start'   // Default alignment for multi-column layout
+              },
               px: { xs: 2, md: 4, lg: 6 },
               textAlign: 'center'
             }}
@@ -152,27 +164,45 @@ export default function Home() {
             {[{
               title: "Programación",
               description: "Integración de herramientas necesarias para el éxito de tu estrategia digital.",
+              image: "/images/Programacion.png"
             }, {
               title: "Marketing de contenidos",
               description: "Creamos contenido de valor que educa, entretiene y posiciona tu marca.",
+              image: "/images/Mkt.png"
             }, {
               title: "SEO (Optimización para Motores de Búsqueda)",
               description: "Tu negocio es encontrado por clientes potenciales en Google. Más visibilidad, más tráfico.",
+              image: "/images/SEO.png"
             }, {
               title: "SEM y Google ADS",
               description: "Creamos anuncios en Google para que estés visible justo cuando la gente busca lo que ofreces.",
+              image: "/images/GoogleAds.png"
             }, {
               title: "Meta ADS",
               description: "Diseñamos campañas de anuncios para llegar a tu cliente ideal en las plataformas donde pasa más tiempo.",
+              image: "/images/MetaAds.png"
             }, {
               title: "Email marketing",
               description: "Diseñamos estrategias de correo electrónico para comunicarte directamente con tus clientes, construir lealtad y animarlos a comprar de nuevo.",
+              image: "/images/Email.png"
             }, {
               title: "Armado de páginas web",
               description: "Creamos tu tienda online o tu página de presentación profesional, pensada para que tus visitantes se conviertan en clientes.",
+              image: "/images/Web.png"
+            }, {
+              title: "Integraciones",
+              description: "Conectamos tus herramientas digitales como CMS, CRM, Marketing Automation, ERP, y más para optimizar procesos y maximizar resultados.",
+              image: "/images/Integraciones.png"
             }].map((service, index) => (
               <Box key={index} sx={{ border: '1px solid #e0e0e0', borderRadius: 4, p: 2, width: '75%', mb: 2 }}>
-                <Box sx={{ height: 112.5, bgcolor: '#f7f7f7', borderRadius: 4, mb: 2 }} />
+                {service.image && (
+                  <Box
+                    component="img"
+                    src={service.image}
+                    alt={service.title}
+                    sx={{ width: '100%', height: 'auto', borderRadius: 4, mb: 2 }}
+                  />
+                )}
                 <Typography variant="h6" fontWeight={600} gutterBottom>
                   {service.title}
                 </Typography>
@@ -298,7 +328,7 @@ export default function Home() {
             </Accordion>
             <Accordion disableGutters elevation={0} square sx={{ mb: 2, border: 'none', boxShadow: 'none' }}>
               <AccordionSummary expandIcon={<span style={{fontWeight:700}}>&#x25BC;</span>}>
-                <Typography fontWeight={600}>¿Qué diferencia a ByS Growth Marketing de una agencia tradicional?</Typography>
+                <Typography fontWeight={600}>¿Qué diferencia a SyB Growth Marketing de una agencia tradicional?</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography variant="body2">
