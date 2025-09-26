@@ -82,6 +82,9 @@ export default function Home() {
           color: "#fff",
           py: 8,
           textAlign: "center",
+          backgroundImage: 'url(/images/Banner2.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       >
         <Container maxWidth="md">
