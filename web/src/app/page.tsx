@@ -13,6 +13,31 @@ import "swiper/css";
 import "swiper/css/navigation";
 export default function Home() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [formSubmitted, setFormSubmitted] = React.useState(false);
+  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    try {
+      // Enviar a Google Forms usando fetch
+      await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Necesario para Google Forms
+      });
+      
+      setFormSubmitted(true);
+      form.reset();
+      
+      // Resetear mensaje después de 5 segundos
+      setTimeout(() => setFormSubmitted(false), 5000);
+    } catch (error) {
+      console.error('Error al enviar formulario:', error);
+    }
+  };
+  
   const navLinks = [
     { label: 'Inicio', href: '#hero' },
     { label: 'Nosotros', href: '#nosotros' },
@@ -469,11 +494,20 @@ export default function Home() {
           <Typography variant="body1" gutterBottom>
             Agenda una llamada o contáctanos para recibir una propuesta personalizada.
           </Typography>
+          
+          {formSubmitted && (
+            <Box sx={{ mt: 2, p: 2, bgcolor: '#4caf50', color: '#fff', borderRadius: 2 }}>
+              <Typography variant="body1" fontWeight={600}>
+                ¡Gracias! Tu mensaje ha sido enviado correctamente.
+              </Typography>
+            </Box>
+          )}
+          
           <Box
             component="form"
             action="https://docs.google.com/forms/d/e/1FAIpQLScGQ0faf3KB94SFBG2U3mC4MJNlKCFapJv5Bpj5bFlN6R_37A/formResponse"
             method="POST"
-            target="_blank"
+            onSubmit={handleSubmit}
             sx={{ mt: 3, display: "flex", flexDirection: "column", gap: 2, bgcolor: "#fff", color: "#222", borderRadius: 2, p: 3 }}
           >
             {/* Reemplaza los entry.XXXXXXXX por los IDs reales de tu Google Form */}
