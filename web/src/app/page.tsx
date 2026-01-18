@@ -7,6 +7,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import EmailIcon from '@mui/icons-material/Email';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 export default function Home() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const navLinks = [
@@ -178,23 +182,32 @@ export default function Home() {
           >
             Servicios
           </Typography>
-          <Box
-            display="grid"
-            gap={2}
-            sx={{
-              gridTemplateColumns: {
-                xs: '1fr',
-                md: 'repeat(2, 1fr)',
-                lg: 'repeat(4, 1fr)'
+          <Box sx={{
+            '& .swiper-button-next, & .swiper-button-prev': {
+              color: '#000',
+              '&::after': {
+                fontSize: '28px',
+                fontWeight: 'bold',
               },
-              justifyItems: {
-                xs: 'center', // Center items for single-column layout
-                md: 'start'   // Default alignment for multi-column layout
-              },
-              px: { xs: 2, md: 4, lg: 6 },
-              textAlign: 'center'
-            }}
-          >
+              '&:hover': {
+                color: '#333',
+              }
+            }
+          }}>
+            <Swiper
+              modules={[Navigation]}
+              navigation
+              spaceBetween={24}
+              slidesPerView={1}
+              loop={false}
+              speed={600}
+              breakpoints={{
+                600: { slidesPerView: 2 },
+                900: { slidesPerView: 3 },
+                1200: { slidesPerView: 4 },
+              }}
+              style={{ padding: "24px 0" }}
+            >
             {[{
               title: "Programación",
               description: "Integración de herramientas necesarias para el éxito de tu estrategia digital.",
@@ -228,23 +241,26 @@ export default function Home() {
               description: "Conectamos tus herramientas digitales como CMS, CRM, Marketing Automation, ERP, y más para optimizar procesos y maximizar resultados.",
               image: "/images/Integraciones.png"
             }].map((service, index) => (
-              <Box key={index} sx={{ bgcolor: '#fff', border: '1px solid #e0e0e0', borderRadius: 4, p: 2, width: '75%', mb: 2, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}>
-                {service.image && (
-                  <Box
-                    component="img"
-                    src={service.image}
-                    alt={service.title}
-                    sx={{ width: '100%', height: 'auto', borderRadius: 4, mb: 2 }}
-                  />
-                )}
-                <Typography variant="h6" fontWeight={600} gutterBottom>
-                  {service.title}
-                </Typography>
-                <Typography variant="body2">
-                  {service.description}
-                </Typography>
-              </Box>
+              <SwiperSlide key={index}>
+                <Box sx={{ bgcolor: '#fff', border: '1px solid #e0e0e0', borderRadius: 4, p: 2, mx: 1, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  {service.image && (
+                    <Box
+                      component="img"
+                      src={service.image}
+                      alt={service.title}
+                      sx={{ width: '100%', height: 'auto', borderRadius: 4, mb: 2 }}
+                    />
+                  )}
+                  <Typography variant="h6" fontWeight={600} gutterBottom>
+                    {service.title}
+                  </Typography>
+                  <Typography variant="body2">
+                    {service.description}
+                  </Typography>
+                </Box>
+              </SwiperSlide>
             ))}
+          </Swiper>
           </Box>
         </Container>
       </Box>
@@ -487,7 +503,7 @@ export default function Home() {
               </Typography>
               <IconButton 
                 component="a" 
-                href="https://www.instagram.com/syb.growthmarketing" 
+                href="https://www.instagram.com/syb.growthmarketing/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 sx={{ color: '#fff', '&:hover': { color: '#E4405F' } }}

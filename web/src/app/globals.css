@@ -1,8 +1,13 @@
 /* Swiper navigation custom color */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #c5c5c1 !important;
-  fill: #c5c5c1 !important;
+  color: #000000 !important;
+  fill: #000000 !important;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #333333 !important;
+  fill: #333333 !important;
 }
 @import "tailwindcss";
 
