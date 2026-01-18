@@ -3,6 +3,10 @@ import React from "react";
 import Image from "next/image";
 import { Box, Button, Container, Typography, Paper, AppBar, Toolbar, Link as MuiLink, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import EmailIcon from '@mui/icons-material/Email';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -11,11 +15,11 @@ export default function Home() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const navLinks = [
     { label: 'Inicio', href: '#hero' },
-    { label: 'Sobre nosotros', href: '#sobre-nosotros' },
+    { label: 'Nosotros', href: '#nosotros' },
     { label: 'Servicios', href: '#servicios' },
     { label: 'Proceso', href: '#proceso' },
-    { label: 'Testimonios', href: '#testimonios' },
-    { label: 'Casos de éxito', href: '#carrusel' },
+    // { label: 'Testimonios', href: '#testimonios' },
+    // { label: 'Casos de éxito', href: '#carrusel' },
     { label: 'Contacto', href: '#contacto' },
   ];
 
@@ -112,8 +116,8 @@ export default function Home() {
         </Container>
       </Box>
 
-      {/* Sobre Nosotros */}
-      <Box id="sobre-nosotros" sx={{ bgcolor: "#fff", py: 8 }}>
+      {/* Nosotros */}
+      <Box id="nosotros" sx={{ bgcolor: "#fff", py: 8 }}>
         <Container maxWidth="md">
           <Typography
             variant="h4"
@@ -122,13 +126,16 @@ export default function Home() {
             fontWeight={700}
             gutterBottom
           >
-            Sobre nosotros
+            Nosotros
+          </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
+            En SyB Growth Marketing creemos que el crecimiento digital no tiene por qué ser complicado. Somos una agencia especializada en Growth Marketing que ayuda a empresas a crecer de forma inteligente, escalable y medible, sin perder de vista lo más importante: tus objetivos de negocio.
+          </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
+            Entendemos que cada empresa es única, por eso diseñamos estrategias personalizadas que combinan creatividad, tecnología y análisis de datos. Nuestro equipo está formado por profesionales apasionados por el marketing digital, la analítica, la automatización y el diseño, todos comprometidos con tu éxito.
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            Somos una agencia especializada en Growth Marketing. Ayudamos a
-            empresas a escalar sus resultados digitales combinando creatividad,
-            datos y tecnología. Nuestro equipo está formado por expertos en
-            marketing digital, analítica, automatización y diseño.
+            No trabajamos con fórmulas mágicas ni promesas vacías. Nos enfocamos en construir relaciones de largo plazo basadas en resultados concretos, transparencia y mejora continua. Queremos ser tu socio estratégico en el camino hacia el crecimiento digital.
           </Typography>
         </Container>
       </Box>
@@ -197,7 +204,7 @@ export default function Home() {
               description: "Conectamos tus herramientas digitales como CMS, CRM, Marketing Automation, ERP, y más para optimizar procesos y maximizar resultados.",
               image: "/images/Integraciones.png"
             }].map((service, index) => (
-              <Box key={index} sx={{ border: '1px solid #e0e0e0', borderRadius: 4, p: 2, width: '75%', mb: 2 }}>
+              <Box key={index} sx={{ bgcolor: '#fff', border: '1px solid #e0e0e0', borderRadius: 4, p: 2, width: '75%', mb: 2, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}>
                 {service.image && (
                   <Box
                     component="img"
@@ -344,7 +351,7 @@ export default function Home() {
       </Box>
 
       {/* Carrusel de imágenes */}
-      <Box id="carrusel" sx={{ bgcolor: "primary.main", color: "#fff", py: 8 }}>
+      {/* <Box id="carrusel" sx={{ bgcolor: "primary.main", color: "#fff", py: 8 }}>
         <Container maxWidth="lg">
           <Typography
             variant="h4"
@@ -383,7 +390,7 @@ export default function Home() {
             ))}
           </Swiper>
         </Container>
-      </Box>
+      </Box> */}
 
       {/* Contacto */}
       <Box
@@ -427,6 +434,79 @@ export default function Home() {
             <Button type="submit" variant="contained" color="primary">
               Enviar
             </Button>
+          </Box>
+        </Container>
+      </Box>
+
+      {/* Footer */}
+      <Box component="footer" sx={{ bgcolor: "#222", color: "#fff", py: 4 }}>
+        <Container maxWidth="lg">
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: 'center', gap: 3 }}>
+            {/* Logo y nombre */}
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Image 
+                src="/images/Logo.jpeg" 
+                alt="Logo" 
+                width={40} 
+                height={40} 
+                style={{ borderRadius: '50%' }} 
+              />
+              <Typography variant="h6" fontWeight={600}>
+                SyB Growth Marketing
+              </Typography>
+            </Box>
+
+            {/* Redes sociales */}
+            <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+              <Typography variant="body2" sx={{ mr: 1, display: { xs: 'none', sm: 'block' } }}>
+                Síguenos:
+              </Typography>
+              <IconButton 
+                component="a" 
+                href="https://www.instagram.com/syb.growthmarketing" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                sx={{ color: '#fff', '&:hover': { color: '#E4405F' } }}
+                aria-label="Instagram"
+              >
+                <InstagramIcon />
+              </IconButton>
+              <IconButton 
+                component="a" 
+                href="https://www.facebook.com/share/1FbaV3LT1Y/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                sx={{ color: '#fff', '&:hover': { color: '#1877F2' } }}
+                aria-label="Facebook"
+              >
+                <FacebookIcon />
+              </IconButton>
+              <IconButton 
+                component="a" 
+                href="https://wa.me/541140619556" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                sx={{ color: '#fff', '&:hover': { color: '#25D366' } }}
+                aria-label="WhatsApp"
+              >
+                <WhatsAppIcon />
+              </IconButton>
+              <IconButton 
+                component="a" 
+                href="mailto:sybgrowthmarketing@gmail.com"
+                sx={{ color: '#fff', '&:hover': { color: '#EA4335' } }}
+                aria-label="Email"
+              >
+                <EmailIcon />
+              </IconButton>
+            </Box>
+          </Box>
+
+          {/* Copyright */}
+          <Box sx={{ mt: 3, pt: 2, borderTop: '1px solid rgba(255,255,255,0.1)', textAlign: 'center' }}>
+            <Typography variant="body2" color="rgba(255,255,255,0.7)">
+              © {new Date().getFullYear()} SyB Growth Marketing. Todos los derechos reservados.
+            </Typography>
           </Box>
         </Container>
       </Box>

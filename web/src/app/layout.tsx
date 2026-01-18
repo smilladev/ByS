@@ -18,6 +18,67 @@ export const metadata: Metadata = {
   title: "SyB Growth Marketing - Estrategias Digitales para Crecer",
   description:
     "SyB Growth Marketing combina creatividad, datos y tecnología para ofrecer soluciones de marketing digital que impulsan el crecimiento de tu negocio.",
+  keywords: [
+    "growth marketing",
+    "marketing digital",
+    "agencia de marketing",
+    "SEO",
+    "SEM",
+    "Google Ads",
+    "Meta Ads",
+    "email marketing",
+    "analítica web",
+    "automatización de marketing",
+    "páginas web",
+    "marketing de contenidos",
+    "CRM",
+    "estrategias digitales",
+    "optimización de conversiones",
+    "publicidad digital",
+    "posicionamiento web"
+  ],
+  authors: [{ name: "SyB Growth Marketing" }],
+  creator: "SyB Growth Marketing",
+  publisher: "SyB Growth Marketing",
+  metadataBase: new URL("https://sybgrowth.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    url: "https://sybgrowth.com",
+    title: "SyB Growth Marketing - Estrategias Digitales para Crecer",
+    description:
+      "SyB Growth Marketing combina creatividad, datos y tecnología para ofrecer soluciones de marketing digital que impulsan el crecimiento de tu negocio.",
+    siteName: "SyB Growth Marketing",
+    images: [
+      {
+        url: "/images/Logo.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "SyB Growth Marketing Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SyB Growth Marketing - Estrategias Digitales para Crecer",
+    description:
+      "SyB Growth Marketing combina creatividad, datos y tecnología para ofrecer soluciones de marketing digital que impulsan el crecimiento de tu negocio.",
+    images: ["/images/Logo.jpeg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
   
 export default function RootLayout({
@@ -28,30 +89,13 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <Script id="gtm-script" strategy="afterInteractive">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-W53HPZ7P');
-          `}
-        </Script>
-        <link rel="icon" href="/images/Logo.jpeg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/Logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/Logo.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/Logo.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-W53HPZ7P"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
-        {/* End Google Tag Manager (noscript) */}
         <MuiProvider>{children}</MuiProvider>
       </body>
     </html>
