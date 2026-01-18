@@ -33,6 +33,34 @@ export default function Home() {
 
   return (
     <Box>
+      {/* WhatsApp Floating Button */}
+      <IconButton
+        component="a"
+        href="https://wa.me/541140619556"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+        sx={{
+          position: 'fixed',
+          bottom: { xs: 20, md: 30 },
+          right: { xs: 20, md: 30 },
+          bgcolor: '#25D366',
+          color: '#fff',
+          width: { xs: 56, md: 64 },
+          height: { xs: 56, md: 64 },
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+          zIndex: 1000,
+          transition: 'all 0.3s ease',
+          '&:hover': {
+            bgcolor: '#20BA5A',
+            transform: 'scale(1.1)',
+            boxShadow: '0 6px 20px rgba(0, 0, 0, 0.4)',
+          },
+        }}
+      >
+        <WhatsAppIcon sx={{ fontSize: { xs: 32, md: 36 } }} />
+      </IconButton>
+
       {/* Navbar */}
       <AppBar position="sticky" color="default" elevation={0} sx={{ bgcolor: '#fff', borderBottom: '1px solid #e0e0e0' }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: { xs: 1, sm: 2 } }}>
