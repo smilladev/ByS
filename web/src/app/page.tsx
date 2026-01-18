@@ -244,12 +244,27 @@ export default function Home() {
               <SwiperSlide key={index}>
                 <Box sx={{ bgcolor: '#fff', border: '1px solid #e0e0e0', borderRadius: 4, p: 2, mx: 1, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)', height: '100%', display: 'flex', flexDirection: 'column' }}>
                   {service.image && (
-                    <Box
-                      component="img"
-                      src={service.image}
-                      alt={service.title}
-                      sx={{ width: '100%', height: 'auto', borderRadius: 4, mb: 2 }}
-                    />
+                    <Box sx={{ 
+                      position: 'relative', 
+                      width: '100%', 
+                      height: '180px', 
+                      mb: 2,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        style={{ 
+                          objectFit: 'contain',
+                          padding: '10px'
+                        }}
+                        quality={100}
+                        unoptimized
+                      />
+                    </Box>
                   )}
                   <Typography variant="h6" fontWeight={600} gutterBottom>
                     {service.title}
