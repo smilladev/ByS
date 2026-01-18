@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import MuiProvider from "../components/MuiProvider";
@@ -88,6 +89,19 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-BX0QP5B1CR"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BX0QP5B1CR');
+          `}
+        </Script>
         <link rel="icon" type="image/png" sizes="32x32" href="/images/Logo.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/Logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/Logo.png" />
